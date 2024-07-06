@@ -15,13 +15,13 @@ return (
      <nav>
       <ul>
         <li>
-          <NavLink to="/">Home page</NavLink>
+          <NavLink to="/">HomePage</NavLink>
         </li>
       </ul>
      </nav>
 
      <Routes>
-      <Route path='/' element={<div>HomePage</div>}/>
+      <Route path='/' element={<div> </div>}/>
      </Routes>
     </div>
   </>
