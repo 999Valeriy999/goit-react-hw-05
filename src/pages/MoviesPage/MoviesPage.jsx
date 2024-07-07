@@ -30,7 +30,7 @@ const MoviesPage = ({ onSubmit }) => {
                             name="query"
                             autoComplete="off"
                             autoFocus
-                            placeholder="Search images and photos"
+                            placeholder="Search film"
                         />
                         <button className={css.btn} type="submit">
                             Search
