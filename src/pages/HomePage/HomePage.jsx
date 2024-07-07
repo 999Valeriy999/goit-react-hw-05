@@ -7,7 +7,7 @@ const DataFetcher = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('https://api.themoviedb.org/3/account/null/favorite/tv?language=en-US&page=1&sort_by=created_at.asc')
+    axios.get('eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODkxNGNlMTVjYWIwYjRmOGQ0N2Q0YmNmNDY0NjJlOSIsIm5iZiI6MTcyMDM4MTQxMC40NDg2NjYsInN1YiI6IjY2ODVhMjBhNjNkMGI1ZDdmYTFhNDc3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.U-YsUKAu6QiDbPhL3oO7jHiUEfvcSvOYXHUKMKItOuA')
       .then((response) => {
         setData(response.data);
         setLoading(false);  
