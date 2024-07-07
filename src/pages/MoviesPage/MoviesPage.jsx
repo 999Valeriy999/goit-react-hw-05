@@ -1,5 +1,5 @@
 import toast, { Toaster } from "react-hot-toast";
-import css from "./SearchBar.module.css";
+import css from "./MoviesPage.module.css";
 import { AiFillWarning } from "react-icons/ai";
 import { Formik, Form, Field } from "formik";
 
@@ -38,4 +38,4 @@ const SearchBar = ({ onSubmit }) => {
         </header>
     );
 };
-export default SearchBar;
+export default MoviesPage;
