@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import MoviesPage from './pages/MoviesPage/MoviesPage';
+import { fetchFilm } from './api';
 
 function App() {
   const [query, setQuery] = useState('');

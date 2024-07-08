@@ -1,41 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
-const DataFetcher = () => {
-  const [data, setData] = useState([]);
+import React, { useEffect, useState } from 'react';
+import { fetchFilm  } from '../api';
+import MovieList from './MovieList';
+
+const HomePage = () => {
+  const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('вставить ссылку')
-      .then((response) => {
-        setData(response.data);
-        setLoading(false);  
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
+    const getMovies = async () => {
+      const moviesData = await fetchFilm();
+      setMovies(moviesData);
+      setLoading(false);
+    };
+
+    getMovies();
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <p>Loading...</p>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <p>Error: {error}</p>;
   }
 
   return (
     <div>
-      <h1>Fetched Data</h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
+      <h1>Home Page</h1>
+      <MovieList movies={movies} />
     </div>
   );
 };
 
-export default DataFetcher;
+export default HomePage;
