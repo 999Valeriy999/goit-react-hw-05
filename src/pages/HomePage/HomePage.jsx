@@ -1,37 +1,18 @@
 
-import React, { useEffect, useState } from 'react';
-import { fetchFilm  } from '../api';
-import MovieList from './MovieList';
+import React from 'react';
+import { Link } from 'react-router-dom'; // Предполагается использование React Router для маршрутизации
+import API_KEY from './api';
 
 const HomePage = () => {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const getMovies = async () => {
-      const moviesData = await fetchFilm();
-      setMovies(moviesData);
-      setLoading(false);
-    };
-
-    getMovies();
-  }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
+  const serviceUrl = `https://www.themoviedb.org/?api_key=${API_KEY}`;
 
   return (
     <div>
-      <h1>Home Page</h1>
-      <MovieList movies={movies} />
+      <h1>Home page</h1>
+      
+      <Link to={serviceUrl} target="_blank" rel="noopener noreferrer">Перейти на сервис фильмов</Link>
     </div>
   );
-};
+}
 
 export default HomePage;
