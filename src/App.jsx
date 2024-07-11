@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 import './App.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 
 
 function App() {
-  
-
   return (
     <BrowserRouter>
       <div>
@@ -15,14 +14,13 @@ function App() {
             <li>
               <NavLink to="/">HomePage</NavLink>
             </li>
-                     </ul>
+          </ul>
         </nav>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          
         </Routes>
       </div>
-    </BrowserRouter>
+    </BrowserRouter> 
   );
 }
 

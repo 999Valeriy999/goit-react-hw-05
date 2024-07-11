@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom'; // Предполагается использование React Router для маршрутизации
-import API_KEY from './api';
+import { Link } from 'react-router-dom'; // Импортируем компонент Link из React Router
+import { API_KEY } from './api'; // Импортируем API_KEY из модуля './api'
 
 const HomePage = () => {
   const serviceUrl = `https://www.themoviedb.org/?api_key=${API_KEY}`;
@@ -10,7 +10,7 @@ const HomePage = () => {
     <div>
       <h1>Home page</h1>
       
-      <Link to={serviceUrl} target="_blank" rel="noopener noreferrer">Перейти на сервис фильмов</Link>
+      <Link to={serviceUrl} target="_blank" rel="noopener noreferrer"></Link> 
     </div>
   );
 }

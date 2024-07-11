@@ -1,8 +1,8 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://api.example.com/";
-const API_KEY = "your_api_key_here";
-const AUTH_TOKEN = "your_auth_token_here";
+axios.defaults.baseURL = "https://www.themoviedb.org/";
+const API_KEY = "28914ce15cab0b4f8d47d4bcf46462e9";
+const AUTH_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODkxNGNlMTVjYWIwYjRmOGQ0N2Q0YmNmNDY0NjJlOSIsIm5iZiI6MTcyMDcyODUxMy44ODcyOTksInN1YiI6IjY2ODVhMjBhNjNkMGI1ZDdmYTFhNDc3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rFu2IKeY4pJGKzWA4TiC_A4EHz3SlbkO2qkDWVDKCmM ";
 
 export const fetchFilm = async (searchQuery, currentPage) => {
   try {
