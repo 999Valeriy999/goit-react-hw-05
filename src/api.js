@@ -7,10 +7,7 @@ axios.defaults.params =
 export const fetchFilm = async (searchQuery) => {
   try {
     const response = await axios.get("/rated/movies", {
-      params: {
-        api_key: "28914ce15cab0b4f8d47d4bcf46462e9",
-      },
-    });
+          });
 
     return response.data;
   } catch (error) {
