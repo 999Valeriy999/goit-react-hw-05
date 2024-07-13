@@ -6,7 +6,7 @@ axios.defaults.params =
 
 export const fetchFilm = async (searchQuery) => {
   try {
-    const response = await axios.get("/search/movie", {
+    const response = await axios.get("/rated/movies", {
       params: {
         query: searchQuery,
       },
