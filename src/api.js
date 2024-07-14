@@ -5,7 +5,7 @@ axios.defaults.params = {
   api_key: "28914ce15cab0b4f8d47d4bcf46462e9",
 };
 
-export const fetchFilm = async () => {
+export const fetchTopRatedFilms = async () => {
   try {
     const response = await axios.get("/movie/top_rated", {
       params: {

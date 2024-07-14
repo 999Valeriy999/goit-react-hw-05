@@ -1,12 +1,21 @@
 
-import { useEffect } from "react";
-import { fetchFilm } from "../../api";
+import { useEffect, useState } from "react";
+import { fetchTopRatedFilms } from "../../api";
 
 const HomePage = () => {
+const [movies, setMovies] = useState ([]);
+const [isLoading, setIsLoading] = useState(false);
 useEffect(() => {
   const asyncWrapper = async () => {
-    const data = await fetchFilm("avatar");
-    console.log(data);
+    try {
+      setIsLoading(true);
+    const data = await fetchTopRatedFilms ();
+    setMovies(data);
+    } catch (error) {
+    console.log(error);
+  } finally {
+    setIsLoading(false);
+  }
   };
 
  asyncWrapper(); }, []);
