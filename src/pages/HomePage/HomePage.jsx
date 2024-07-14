@@ -34,7 +34,7 @@ useEffect(() => {
     <h1></h1>
     <MovieList onMoviesUpdate={handleMoviesUpdate} />
     <div>
-      <h2> MovieList</h2>
+      <h2> Trending today</h2>
       <ul>
         {moviesList.map(movie => (
           <li key={movie.id}>

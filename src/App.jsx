@@ -14,13 +14,13 @@ function App() {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/lists">MovieList</NavLink>
+              <NavLink to="/">movie list</NavLink>
             </li>
           </ul>
         </nav>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/lists" element={<MovieList />} />
+          <Route path="/" element={<MovieList />} />
         </Routes>
       </div>
     </BrowserRouter> 
