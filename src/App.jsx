@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
@@ -12,17 +11,17 @@ function App() {
         <nav>
           <ul>
             <li>
-              <NavLink to="/">HomePage</NavLink>
-                      </li>
-            <li><NavLink to="/lists">MovieList</NavLink>
-              </li>          
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/lists">MovieList</NavLink>
+            </li>
           </ul>
         </nav>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/lists" element={<MovieList/>} />
+          <Route path="/lists" element={<MovieList />} />
         </Routes>
-
       </div>
     </BrowserRouter> 
   );

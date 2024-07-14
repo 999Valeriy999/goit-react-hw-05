@@ -2,35 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { fetchMovies } from '../../api';
 
 const MovieList = () => {
-  const [movies, setMovies] = useState([]);
+  const [moviesList, setMoviesList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
-        const moviesData = await fetchMovies();
-        setMovies(moviesData); // Сохраняем данные о фильмах в состояние
+        const data = await fetchMovies();
+        setMoviesList(data);
       } catch (error) {
+        setError('Error loading movies');
         console.error('Error loading movies:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  return (
-    <div>
-      <h2>Movie List</h2>
-      <ul>
-        {movies.map(movie => (
-          <li key={movie.id}>
-            <h3>{movie.title}</h3>
-            <p>Director: {movie.director}</p>
-            <p>Release Year: {movie.releaseYear}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h2>Movie List</h2>
+        <p>Error: {error}</p>
+      </div>
+    );
+  }
+
+ 
 };
 
 export default MovieList;
