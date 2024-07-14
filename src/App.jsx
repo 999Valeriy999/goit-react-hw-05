@@ -13,7 +13,7 @@ function App() {
           <ul>
             <li>
               <NavLink to="/">HomePage</NavLink>
-            </li>
+                      </li>
           </ul>
         </nav>
         <Routes>
