@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { fetchTopRatedFilms } from "../../api";
-import MovieList from "../../components/MovieList/MovieList";
+import MovieList from '../../components/MovieList/MovieList';
 
 
 const HomePage = () => {
@@ -37,8 +37,8 @@ useEffect(() => {
       <h2> Trending today</h2>
       <ul>
         {moviesList.map(movie => (
-          <li key={movie.id}>
-            {movie.title}
+          <li>
+            <MovieList movies={movies} />
           </li>
         ))}
       </ul>

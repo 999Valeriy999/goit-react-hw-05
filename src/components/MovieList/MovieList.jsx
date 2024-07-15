@@ -1,42 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { fetchMovies } from '../../api';
+import { Link, useLocation } from "react-router-dom";
+const MovieList = ({ movies }) => {
+  const location = useLocation();
 
-const MovieList = () => {
-  const [moviesList, setMoviesList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const data = await fetchMovies();
-        setMoviesList(data);
-      } catch (error) {
-        setError('Error loading movies');
-        console.error('Error loading movies:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return (
-      <div>
-        <h2>Movie List</h2>
-        <p>Error: {error}</p>
-      </div>
-    );
-  }
-
- 
+  return (
+    <ul>
+      {movies.map((movie) => (
+        <li key={movie.id}>
+          <Link
+            to={{
+              pathname: `/movies/${movie.id.toString()}`,
+              state: { from: location.pathname },
+            }}
+          >
+            {movie.title}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
 };
-
 export default MovieList;
