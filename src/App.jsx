@@ -2,6 +2,10 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
+import { lazy } from "react";
+import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage'
+
+
 const Home = lazy(() => import("./pages/HomePage/HomePage"));
 
 const MovieDetails = lazy(() =>
