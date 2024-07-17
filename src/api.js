@@ -18,5 +18,15 @@ export const fetchTopRatedFilms = async () => {
   } catch (error) {
     console.error("Ошибка при запросе к API:", error);
     throw error;
+    
+  }
+ }
+ export const getMovieDetails = async (movie_id) => {
+  try {
+    const response = await axios.get(`/movie/${movie_id}`);
+    return response.data; // возвращаем данные о фильме
+  } catch (error) {
+    console.error("Ошибка при запросе к API:", error);
+    throw error;
   }
 };
