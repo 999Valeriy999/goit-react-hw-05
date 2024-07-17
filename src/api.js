@@ -30,3 +30,17 @@ export const fetchTopRatedFilms = async () => {
     throw error;
   }
 };
+export function getSearchMovie({ query }) {
+  return instance
+    .get("/search/movie", { params: { query } })
+    .then((res) => res.data);
+}
+export function getMovieCredits(movie_id) {
+  return instance.get(`/movie/${movie_id}/credits`).then((res) => res.data);
+}
+
+export function getMovieReviews(movie_id) {
+  return instance.get(`/movie/${movie_id}/reviews`).then((res) => res.data);
+}
+
+
