@@ -31,17 +31,16 @@ useEffect(() => {
 
  return (
   <div>
-    <h1></h1>
+    
     <MovieList onMoviesUpdate={handleMoviesUpdate} />
     <div>
       <h2> Trending today</h2>
       <ul>
-        {moviesList.map(movie => (
+
           <li>
             <MovieList movies={movies} />
           </li>
-        ))}
-      </ul>
+            </ul>
     </div>
   </div>
 );

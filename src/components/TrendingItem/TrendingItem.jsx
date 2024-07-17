@@ -1,21 +1,20 @@
 import React from "react";
+import {Link,useLocation } from "react-router-dom";
 
-import { useLocation } from "react-router-dom";
 
 const TrendingItem = ({ id, name }) => {
-  const { pathname, search } = useLocation();
+  const location = useLocation();
 
   return (
     <li>
-      <S.ListLink
-        state={{
-          pathname,
-          search,
-        }}
-        to={`/movies/${id}`}
-      >
-        {name}
-      </S.ListLink>
+      <Link
+        state={location}  to={`/movies/${id}`}>
+          {name}
+
+        </Link>
+        
+        
+        
     </li>
   );
 };
