@@ -33,6 +33,8 @@ function App() {
             <li>
               <NavLink to="/">Home</NavLink> 
               <NavLink to ="/movies/"></NavLink>
+              <NavLink to ="/cast/"></NavLink>
+              <NavLink to ="reviews"></NavLink>
             </li>
             
               
@@ -41,7 +43,12 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path= "/" element = {MovieDetails/>}/>
+          <Route path= "/movies" element = {<MovieDetails/>}/>
+          <Route path= "/MoviesPage" element = {<MoviesPage/>}/>
+          <Route path= "/cast" element = {<MoviesPage/>}/>
+
+
+
 
         </Routes>
       </div>
