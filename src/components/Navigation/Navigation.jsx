@@ -1,18 +1,24 @@
 import React from "react";
-
-
+import { NavLink } from "react-router-dom";
+ 
 
 const Navigation = () => {
   return (
     <header>
-      <S.Nav>
-        <S.StyledNavLink to="/" activeClassName="active">
+      <nav >
+        <NavLink 
+          to="/" 
+          
+        >
           Home
-        </S.StyledNavLink>
-        <S.StyledNavLink to="/movies" activeClassName="active">
+        </NavLink>
+        <NavLink 
+          to="/movies" 
+         
+        >
           Movies
-        </S.StyledNavLink>
-      </S.Nav>
+        </NavLink>
+      </nav>
     </header>
   );
 };

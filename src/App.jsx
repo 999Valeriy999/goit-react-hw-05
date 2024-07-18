@@ -19,7 +19,7 @@ function App() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/">Movies</NavLink>
+            <NavLink to="/movies">Movies</NavLink>
           </li>
         </ul>
       </Navigation>
