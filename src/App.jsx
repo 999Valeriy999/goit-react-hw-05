@@ -4,6 +4,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import { lazy } from "react";
 import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage'
+import Navigation from './components/Navigation/Navigation';
 
 
 const Home = lazy(() => import("./pages/HomePage/HomePage"));
@@ -28,19 +29,21 @@ function App() {
   
     <BrowserRouter>
       <div>
-        <nav>
+        
+      <Navigation>
           <ul>
             <li>
               <NavLink to="/">Home</NavLink> 
-              <NavLink to ="/movies/"></NavLink>
-              <NavLink to ="/cast/"></NavLink>
-              <NavLink to ="reviews"></NavLink>
+              <NavLink to ="/movies/"> Movies</NavLink>
+          
+              
             </li>
             
               
             
           </ul>
-        </nav>
+        </Navigation>
+        
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path= "/movies" element = {<MovieDetails/>}/>
