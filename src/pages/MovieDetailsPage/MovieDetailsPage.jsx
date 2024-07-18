@@ -4,7 +4,7 @@ import MovieCard from '../../components/MovieCard/MovieCard';
 import { getMovieDetails } from "../../api";
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Loader from "../../components/Loader/Loader";
-import { NotFound } from "../../components/NotFound/NotFound';
+import { NotFound } from "../../components/NotFound/NotFound";
 
 const MovieDetailsPage = () => {
   const [data, setData] = useState(null);
