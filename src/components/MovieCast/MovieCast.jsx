@@ -10,13 +10,14 @@ const MovieCast = () => {
   const [cast, setCast] = useState(null);
   const [castLoading, setCastLoading] = useState(false);
   const [errorMessageCast, setErrorMessageCast] = useState("");
+  
   const getMovieCastAsync = async () => {
     setCastLoading(true);
     try {
       const { cast } = await getMovieCredits(movieId);
       setCast(cast);
     } catch (e) {
-      setErrorMessageCast(e.message); // Corrected to set the error message
+      setErrorMessageCast(e.message); // Ensure the error message is set correctly
     } finally {
       setCastLoading(false);
     }
