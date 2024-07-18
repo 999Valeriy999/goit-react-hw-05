@@ -30,7 +30,7 @@ function App() {
     <BrowserRouter>
       <div>
         
-      <Navigation>
+       <Navigation>
           <ul>
             <li>
               <NavLink to="/">Home</NavLink> 
@@ -43,7 +43,7 @@ function App() {
             
           </ul>
         </Navigation>
-        
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path= "/movies" element = {<MovieDetails/>}/>
@@ -54,6 +54,7 @@ function App() {
 
 
         </Routes>
+        </Suspense>
       </div>
     </BrowserRouter> 
   );
