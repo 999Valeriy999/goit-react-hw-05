@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MovieCastItem from "../MovieCastItem/MovieCastItem";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import * as S from "./MovieCast.style";
 import { useParams } from "react-router-dom";
 import { getMovieCredits } from "../../Services/api";
 import Loader from "../Loader/Loader";
@@ -17,7 +16,7 @@ const MovieCast = () => {
       const { cast } = await getMovieCredits(movieId);
       setCast(cast);
     } catch (e) {
-      setErrorMessageCast(e);
+      setErrorMessageCast(e.message); // Corrected to set the error message
     } finally {
       setCastLoading(false);
     }
@@ -33,7 +32,7 @@ const MovieCast = () => {
       {castLoading ? (
         <Loader />
       ) : (
-        <S.ListCast>
+        <>
           {cast?.map(({ profile_path, name, character, id }) => (
             <MovieCastItem
               key={id}
@@ -42,7 +41,7 @@ const MovieCast = () => {
               character={character}
             />
           ))}
-        </S.ListCast>
+        </>
       )}
     </>
   );
