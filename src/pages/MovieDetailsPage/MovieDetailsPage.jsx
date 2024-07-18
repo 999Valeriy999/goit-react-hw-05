@@ -1,17 +1,16 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import MovieCard from '../../components/MovieCard/MovieCard';
-import { getMovieDetails } from  "../../api";
-import { Link, Outlet, Route, useLocation, useParams } from "react-router-dom";
-import ErrorMessage from '../../components/ErrorMassage/ErrorMessage';
+import { getMovieDetails } from "../../api";
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Loader from "../../components/Loader/Loader";
-import { NotFound } from "../../components/NotFound/NotFound";
+import { NotFound } from "../../components/NotFound/NotFound';
 
 const MovieDetailsPage = () => {
   const [data, setData] = useState(null);
   const { movieId } = useParams();
   const [errorMessage, setErrorMessage] = useState("");
   const [statusCode, setStatusCode] = useState(null);
-
   const [loading, setLoading] = useState(false);
 
   const location = useLocation();
@@ -24,7 +23,7 @@ const MovieDetailsPage = () => {
       setData(data);
     } catch (e) {
       setErrorMessage(e.message);
-      setStatusCode(e.response.status);
+      setStatusCode(e.response?.status);
     } finally {
       setLoading(false);
     }
@@ -36,7 +35,7 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <S.GoBack to={ref.current}>Back</S.GoBack>
+      <Link to={ref.current}>Back</Link>
       {errorMessage && statusCode !== 404 && (
         <ErrorMessage message={errorMessage} />
       )}
@@ -55,14 +54,14 @@ const MovieDetailsPage = () => {
         )
       )}
       <>
-        <S.List>
+        <ul>
           <li>
-            <S.StyledLinkCast to="cast">Cast</S.StyledLinkCast>
+            <Link to="cast">Cast</Link>
           </li>
           <li>
-            <S.StyledLinkReviews to="reviews">Reviews</S.StyledLinkReviews>
+            <Link to="reviews">Reviews</Link>
           </li>
-        </S.List>
+        </ul>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
