@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import * as S from "./SearchBar.style";
 
 const SearchBar = ({ onSubmit, query }) => {
   const [value, setValue] = useState(query ?? "");
@@ -13,16 +12,17 @@ const SearchBar = ({ onSubmit, query }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <S.Input
+    <form onSubmit={handleSubmit} className="search-form">
+      <input
         type="text"
         autoComplete="off"
         autoFocus
         placeholder="Search movie"
         onChange={handleChange}
         value={value}
+        className="search-input"
       />
-      <S.ButtonInput type="submit">Search</S.ButtonInput>
+      <button type="submit" className="search-button">Search</button>
     </form>
   );
 };
