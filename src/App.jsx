@@ -13,7 +13,7 @@ const MovieReviews = lazy(() => import('./components/MovieReviews/MovieReviews')
 function App() {
   return (
     <BrowserRouter>
-      <Navigation>
+      <Navigation/>
         <ul>
           <li>
             <NavLink to="/">Home</NavLink>
@@ -22,7 +22,7 @@ function App() {
             <NavLink to="/movies">Movies</NavLink>
           </li>
         </ul>
-      </Navigation>
+      
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />

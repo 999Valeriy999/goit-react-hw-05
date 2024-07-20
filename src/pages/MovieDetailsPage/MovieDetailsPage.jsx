@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import MovieCard from '../../components/MovieCard/MovieCard';
 import { getMovieDetails } from "../../api";
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import ErrorMessage from '../../components/ErrorMassage/ErrorMessage';
 import Loader from "../../components/Loader/Loader";
 import { NotFound } from "../../components/NotFound/NotFound";
 

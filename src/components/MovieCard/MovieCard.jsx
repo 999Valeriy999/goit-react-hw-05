@@ -1,5 +1,5 @@
 import React from "react";
-
+import * as S from "./MovieCard.style";
 
 const MovieCard = ({
   backdrop_path,

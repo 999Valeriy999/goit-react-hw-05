@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
-import { getSearchMovie } from "../../Services/api";
+import { getSearchMovie } from "../../api";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import { useSearchParams } from "react-router-dom";
