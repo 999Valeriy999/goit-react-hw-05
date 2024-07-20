@@ -1,31 +1,42 @@
-import React from "react";
-import * as S from "./MovieCard.style";
+import React, { useState, useEffect } from 'react';
+import MovieCard from '../../components/MovieCard/MovieCard';
 
-const MovieCard = ({
-  backdrop_path,
-  title,
-  overview,
-  genres,
-  vote_average,
-}) => {
+const MoviesPage = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    // Замените на реальный API запрос или статичные данные
+    const fetchedMovies = [
+      {
+        id: 1,
+        backdrop_path: '{https://image.tmdb.org/t/p/w500${backdrop_path}`}',
+        title: 'Movie 1',
+        overview: 'Description 1',
+        genres: [{ id: 1, name: 'Action' }, { id: 2, name: 'Drama' }],
+        vote_average: 7.5,
+      },
+      // Другие фильмы
+    ];
+    setMovies(fetchedMovies);
+  }, []);
+
   return (
-    <S.Container>
-      <S.Img
-        src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
-        alt={title}
-      ></S.Img>
-      <S.Title>{title}</S.Title>
-      <p>User score: {Math.round((vote_average / 10) * 100)}%</p>
-      <h3>Overview</h3>
-      <S.Text>{overview}</S.Text>
-      <S.SmallTitle>Genres</S.SmallTitle>
-      <S.List>
-        {genres.map((genre) => (
-          <li key={genre.id}>{genre.name}</li>
+    <div>
+      <h1>Movies Page</h1>
+      <div className="movie-list">
+        {movies.map(movie => (
+          <MovieCard
+            key={movie.id}
+            backdrop_path={movie.backdrop_path}
+            title={movie.title}
+            overview={movie.overview}
+            genres={movie.genres}
+            vote_average={movie.vote_average}
+          />
         ))}
-      </S.List>
-    </S.Container>
+      </div>
+    </div>
   );
 };
 
-export default MovieCard;
+export default MoviesPage;
