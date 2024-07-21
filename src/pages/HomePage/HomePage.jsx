@@ -18,7 +18,7 @@ const HomePage = () => {
         const data = await fetchTopRatedFilms();
         setMovies(data);
       } catch (error) {
-        setError(error); // Установка состояния ошибки
+        setError(error); 
         console.error("Error fetching top rated films:", error);
       } finally {
         setIsLoading(false);
