@@ -30,29 +30,26 @@ const HomePage = () => {
 
   return (
     <div>
-      <MovieList onMoviesUpdate={handleMoviesUpdate} />
+    <h2>Trending today</h2>
+    <MovieList movies={movies} />
+    
+    {isLoading && <p>Loading...</p>}
 
-      {isLoading && <p>Loading...</p>}
-
-      {error && (
-        <div>
-          <p>Failed to fetch top rated films. Please try again later.</p>
-          <p>Error details: {error.message}</p>
-        </div>
-      )}
-
-      {!isLoading && !error && (
-        <div>
-          <h2>Trending today</h2>
-          <ul>
-            <li>
-              <MovieList movies={movies} />
-            </li>
-          </ul>
-        </div>
-      )}
-    </div>
-  );
+    {error && (
+      <div>
+        <p>Failed to fetch top rated films. Please try again later.</p>
+        <p>Error details: {error.message}</p>
+      </div>
+    )}
+  </div>
+);
 };
 
 export default HomePage;
+     
+
+     
+        
+  
+
+
