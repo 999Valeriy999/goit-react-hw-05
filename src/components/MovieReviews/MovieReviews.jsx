@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ErrorMessage from "../ErrorMassage/ErrorMessage";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../api";
 import Loader from "../Loader/Loader";

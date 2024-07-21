@@ -3,7 +3,7 @@ import './ErrorMessage.css'
 
 const ErrorMessage = ({ message = "Sorry, an error occurred, please try again later" }) => {
   return (
-    <p className="errorMessage">{message}</p> /
+    <p className="errorMessage">{message}</p> 
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MovieCastItem from "../MovieCastItem/MovieCastItem";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { useParams } from "react-router-dom";
-import { getMovieCredits } from "../../Services/api";
+import { getMovieCredits } from "../../api";
 import Loader from "../Loader/Loader";
 
 const MovieCast = () => {
