@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import ErrorMessage from "../ErrorMassage/ErrorMessage";
 import { useParams } from "react-router-dom";
-import { getMovieReviews } from "../../Services/api";
+import { getMovieReviews } from "../../api";
 import Loader from "../Loader/Loader";
 
 const MovieReviews = () => {
