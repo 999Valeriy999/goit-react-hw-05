@@ -5,7 +5,7 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    // Замените на реальный API запрос или статичные данные
+   
     const fetchedMovies = [
       {
         id: 1,
