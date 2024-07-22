@@ -1,42 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import * as S from "./MovieCard.style";
 
-
-const MoviesPage = () => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-   
-    const fetchedMovies = [
-      {
-        id: 1,
-        backdrop_path: '{https://image.tmdb.org/t/p/w500${backdrop_path}`}',
-        title: 'Movie 1',
-        overview: 'Description 1',
-        genres: [{ id: 1, name: 'Action' }, { id: 2, name: 'Drama' }],
-        vote_average: 7.5,
-      },
-      // Другие фильмы
-    ];
-    setMovies(fetchedMovies);
-  }, []);
+const MovieCard = ({
+  backdrop_path,
+  title,
+  overview,
+  genres,
+  vote_average,
+}) => {
+  // Логируем пропсы
+  console.log({
+    backdrop_path,
+    title,
+    overview,
+    genres,
+    vote_average,
+  });
 
   return (
-    <div>
-      <h1>Movies Page</h1>
-      <div className="movie-list">
-        {movies.map(movie => (
-          <MovieCard
-            key={movie.id}
-            backdrop_path={movie.backdrop_path}
-            title={movie.title}
-            overview={movie.overview}
-            genres={movie.genres}
-            vote_average={movie.vote_average}
-          />
+    <S.Container>
+      <S.Img
+        src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+        alt={title}
+      ></S.Img>
+      <S.Title>{title}</S.Title>
+      <p>User score: {Math.round((vote_average / 10) * 100)}%</p>
+      <h3>Overview</h3>
+      <S.Text>{overview}</S.Text>
+      <S.SmallTitle>Genres</S.SmallTitle>
+      <S.List>
+        {genres.map((genre) => (
+          <li key={genre.id}>{genre.name}</li>
         ))}
-      </div>
-    </div>
+      </S.List>
+    </S.Container>
   );
 };
 
-export default MoviesPage;
+MovieCard.propTypes = {
+  backdrop_path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  vote_average: PropTypes.number.isRequired,
+};
+
+export default MovieCard;
