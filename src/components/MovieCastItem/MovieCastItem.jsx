@@ -1,5 +1,5 @@
 import React from "react";
-
+import * as S from "./MovieCastItem.style";
 
 const MovieCastItem = ({ profile_path, name, character }) => {
   return profile_path !== null ? (
