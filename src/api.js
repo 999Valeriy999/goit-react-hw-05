@@ -42,13 +42,20 @@ export const  getMovieReviews = async id => {
   return data;
 };
 
-export const getSearchMovie = async (query, page) => {
-  const { data } = await axios.get(
-    `search/movie?${apiKeyParameter}&query=${query}&page=${page}`
-  );
-  return data;
+export const getSearchMovie = async (query, page = 1) => {
+  try {
+    const { data } = await axios.get("search/movie", {
+      params: {
+        query: query,
+        page: page,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+    throw error;
+  }
 };
-
 
 
 
