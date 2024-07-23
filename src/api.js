@@ -4,6 +4,7 @@ axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.params = {
   api_key: "28914ce15cab0b4f8d47d4bcf46462e9",
 };
+const apiKeyParameter = 'api_key=28914ce15cab0b4f8d47d4bcf46462e9';
 
 export const fetchTopRatedFilms = async () => {
   try {
@@ -30,17 +31,25 @@ export const fetchTopRatedFilms = async () => {
     throw error;
   }
 };
-export function getSearchMovie({ query }) {
-  return instance
-    .get("/search/movie", { params: { query } })
-    .then((res) => res.data);
-}
-export function getMovieCredits(movie_id) {
-  return instance.get(`/movie/${movie_id}/credits`).then((res) => res.data);
-}
 
-export function getMovieReviews(movie_id) {
-  return instance.get(`/movie/${movie_id}/reviews`).then((res) => res.data);
-}
+export const getMovieCredits = async id => {
+  const { data } = await axios.get(`movie/${id}/credits?${apiKeyParameter}`);
+  return data;
+};
+
+export const  getMovieReviews = async id => {
+  const { data } = await axios.get(`movie/${id}/reviews?${apiKeyParameter}`);
+  return data;
+};
+
+export const getSearchMovie = async (query, page) => {
+  const { data } = await axios.get(
+    `search/movie?${apiKeyParameter}&query=${query}&page=${page}`
+  );
+  return data;
+};
+
+
+
 
 
