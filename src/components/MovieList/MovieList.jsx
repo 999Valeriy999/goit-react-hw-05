@@ -41,4 +41,4 @@ const MovieList = ({ movies = [], title, list = [], isLoading }) => {
   );
 };
 
-export default MovieList;
+export default MovieList;9
