@@ -1,9 +1,18 @@
-import styled from "styled-components";
-export const ListCast = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
+import styled from 'styled-components';
+
+export const ItemProfile = styled.div`
+  // стили
+`;
+
+export const ImgProfile = styled.img`
+  // стили
+`;
+
+export const Name = styled.h2`
+  // стили
+`;
+
+export const Character = styled.p`
+  // стили
 `;
 
